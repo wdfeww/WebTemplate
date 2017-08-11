@@ -1,15 +1,13 @@
 package com.project.webtemplate.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Admin")
 public class Admin {
     @Id
-    private int Id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer Id;
 
     @Column(name = "User_Name")
     private String userName;
@@ -24,5 +22,6 @@ public class Admin {
         this.userName = userName;
         this.userPass = userPass;
     }
+
 
 }
