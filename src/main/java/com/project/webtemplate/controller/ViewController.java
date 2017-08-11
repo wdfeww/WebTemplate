@@ -14,7 +14,8 @@ public class ViewController
         model.addAttribute("datetime", new Date());
         model.addAttribute("username", "Username");
         model.addAttribute("name", "Name");
-        model.addAttribute("mode", "development");
         return "index";
     }
+
+
 }
