@@ -17,8 +17,12 @@ public class Admin {
     @Column(name = "User_Password")
     private String userPass;
 
+    public Admin(){
+    }
+
     public Admin(String userName, String userPass){
         this.userName = userName;
         this.userPass = userPass;
     }
+
 }
