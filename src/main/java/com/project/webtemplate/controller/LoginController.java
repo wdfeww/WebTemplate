@@ -15,7 +15,7 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public void addAdmin(@RequestBody Admin admin) {
         loginService.addAdmin(admin);
     }
