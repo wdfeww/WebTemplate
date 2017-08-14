@@ -1,26 +1,37 @@
 package com.project.webtemplate.entities;
 
+import com.project.webtemplate.config.RoleEnum;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "Admin")
-public class  Admin {
+@Table(name = "User")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
 
-    @Column(name = "User_Name")
+    @Column(name = "User_Name", length = 20, unique = true)
+    @NotNull
     private String username;
 
-    @Column(name = "User_Password")
+    @Column(name = "User_Password", length = 100)
+    @NotNull
     private String password;
 
-    public Admin(){
+    @Column(name = "Role", length = 10)
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private RoleEnum role;
+
+    public User(){
     }
 
-    public Admin(String username, String password) {
+    public User(String username, String password, RoleEnum role) {
         this.username = username;
         this.password = password;
+        this.role = role;
     }
 
     public Integer getId() {
@@ -45,5 +56,13 @@ public class  Admin {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public RoleEnum getRole() {
+        return role;
+    }
+
+    public void setRole(RoleEnum role) {
+        this.role = role;
     }
 }

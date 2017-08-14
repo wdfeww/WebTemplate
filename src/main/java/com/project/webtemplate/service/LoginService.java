@@ -1,8 +1,8 @@
 package com.project.webtemplate.service;
 
 import org.apache.commons.lang3.StringUtils;
-import com.project.webtemplate.entities.Admin;
-import com.project.webtemplate.repository.AdminRepository;
+import com.project.webtemplate.entities.User;
+import com.project.webtemplate.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,16 +10,16 @@ import org.springframework.stereotype.Service;
 public class LoginService {
 
     @Autowired
-    private AdminRepository adminRepository;
+    private UserRepository adminRepository;
 
-    public void addAdmin(Admin admin) {
-        adminRepository.save(admin);
+    public void addAdmin(User user) {
+        adminRepository.save(user);
     }
 
     public boolean logIn(String username, String password) {
         if (StringUtils.isNotBlank(username) && StringUtils.isNotBlank(password)) {
-            Admin admin = adminRepository.getAdminByUsernameAndPassword(username, password);
-            if (admin != null) {
+            User user = adminRepository.getUserByUsernameAndPassword(username, password);
+            if (user != null) {
                 return true;
             }
         }
