@@ -10,19 +10,25 @@
 </head>
 <body>
     <div>
-        <form action="@{/user/login}" th:object="${user}" method="POST">
+        <form action="@{/auth}" method="POST">
             <div>
                 <label th:text="#{login.page.username}">user</label>
-                <input type="text" th:field="*{username}" class="form-control"/>
+                <input type="text" autofocus="autofocus" placeholder="Username" name="username"/>
             </div>
             <div>
                 <label th:text="#{login.page.password}">pass</label>
-                <input type="text" th:field="*{password}" class="form-control"/>
+                <input type="text" autofocus="autofocus" placeholder="Password" name="password"/>
             </div>
             <div>
                 <input type="submit" th:attr="value=#{login.page.submit}" class="btn btn-sm btn-default"/>
             </div>
         </form>
     </div>
+
+    <footer class="footer" style="position: absolute; bottom:0;background-color: #f5f5f5; width: 100%">
+        <div class="container">
+            <p th:text="${name}"  class="text-muted"></p>
+        </div>
+    </footer>
 </body>
 </html>
