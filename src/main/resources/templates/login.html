@@ -13,14 +13,14 @@
         <form action="@{/user/login}" th:object="${user}" method="POST">
             <div>
                 <label th:text="#{login.page.username}">user</label>
-                <input type="text" th:field="*{username}" class="form-control">
+                <input type="text" th:field="*{username}" class="form-control"/>
             </div>
             <div>
                 <label th:text="#{login.page.password}">pass</label>
-                <input type="text" th:field="*{password}" class="form-control">
+                <input type="text" th:field="*{password}" class="form-control"/>
             </div>
             <div>
-                <input type="submit" th:attr="value=#{login.page.submit}">
+                <input type="submit" th:attr="value=#{login.page.submit}" class="btn btn-sm btn-default"/>
             </div>
         </form>
     </div>
