@@ -17,5 +17,15 @@ public class ViewController
         return "index";
     }
 
+    @RequestMapping("/error404")
+    public String error404(){
+        return "error404";
+    }
+
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
+
 
 }

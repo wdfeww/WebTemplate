@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+<!--je potrebne pridat do linku aj thymeleaf link aby sa loadli csska-->
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}" ></script>
+</head>
+<body>
+    <div>
+        <form action="" method="POST">
+            <div>
+                <label th:text="login.page.username">user</label>
+                <input type="text" autofocus="autofocus" placeholder="Username" name="username">
+            </div>
+            <div>
+                <label th:text="login.page.password">pass</label>
+                <input type="text" autofocus="autofocus" placeholder="Password" name="password">
+            </div>
+            <div>
+                <input type="submit" type="submit" th:attr="login.page.submit">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

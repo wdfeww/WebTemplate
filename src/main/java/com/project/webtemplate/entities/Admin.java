@@ -10,17 +10,17 @@ public class Admin {
     private Integer Id;
 
     @Column(name = "User_Name")
-    private String userName;
+    private String username;
 
     @Column(name = "User_Password")
-    private String userPass;
+    private String password;
 
     public Admin(){
     }
 
-    public Admin(String userName, String userPass){
-        this.userName = userName;
-        this.userPass = userPass;
+    public Admin(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
     public Integer getId() {
@@ -31,19 +31,19 @@ public class Admin {
         Id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getUserPass() {
-        return userPass;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserPass(String userPass) {
-        this.userPass = userPass;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
