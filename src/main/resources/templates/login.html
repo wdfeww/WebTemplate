@@ -10,7 +10,7 @@
 </head>
 <body>
     <div>
-        <form action="@{/auth}" method="POST">
+        <form name="loginForm" th:action="@{/auth}" method="POST">
             <div>
                 <label th:text="#{login.page.username}">user</label>
                 <input type="text" autofocus="autofocus" placeholder="Username" name="username"/>
