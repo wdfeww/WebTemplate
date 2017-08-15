@@ -5,8 +5,8 @@
 
 	<groupId>com.project</groupId>
 	<artifactId>web-template</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>war</packaging>
 
 	<name>web-template</name>
 	<description>Template project for web pages</description>
