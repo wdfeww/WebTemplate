@@ -1,5 +1,5 @@
 package com.project.webtemplate.config;
 
 public enum RoleEnum {
-    ADMIN, ROOT
+    ROLE_ADMIN, ROLE_ROOT
 }
