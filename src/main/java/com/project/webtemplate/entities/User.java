@@ -1,6 +1,6 @@
 package com.project.webtemplate.entities;
 
-import com.project.webtemplate.config.RoleEnum;
+import com.project.webtemplate.RoleEnum;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
