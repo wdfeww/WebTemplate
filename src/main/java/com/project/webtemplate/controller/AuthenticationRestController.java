@@ -15,11 +15,12 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
-@RestController
+@Controller
 public class AuthenticationRestController {
 
     @Value("${jwt.header}")
@@ -35,7 +36,7 @@ public class AuthenticationRestController {
     private UserDetailsService userDetailsService;
 
     @RequestMapping(value = "${jwt.route.authentication.path}", method = RequestMethod.POST)
-    public ResponseEntity<?> createAuthenticationToken(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password, Device device) throws AuthenticationException {
+    public String createAuthenticationToken(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password, Device device) throws AuthenticationException {
 
         JwtAuthenticationRequest authenticationRequest = new JwtAuthenticationRequest();
         authenticationRequest.setUsername(username);
@@ -55,7 +56,8 @@ public class AuthenticationRestController {
         final String token = jwtTokenUtil.generateToken(userDetails, device);
 
         // Return the token
-        return ResponseEntity.ok(new JwtAuthenticationResponse(token));
+//        return ResponseEntity.ok(new JwtAuthenticationResponse(token));
+        return "admin";
     }
 
     @RequestMapping(value = "${jwt.route.authentication.refresh}", method = RequestMethod.GET)
