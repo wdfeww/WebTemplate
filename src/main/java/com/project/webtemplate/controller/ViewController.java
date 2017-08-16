@@ -1,5 +1,6 @@
 package com.project.webtemplate.controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,12 @@ public class ViewController
         model.addAttribute("username", username);
         model.addAttribute("name", "Name");
         return "index";
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @RequestMapping("/admin")
+    public String admin(){
+        return "admin";
     }
 
     @RequestMapping("/error404")

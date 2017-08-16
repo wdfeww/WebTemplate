@@ -58,14 +58,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         http
                 // we don't need CSRF because our token is invulnerable
-                .csrf().disable()
+//                .csrf().disable()
 
-                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+//                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
 
                 // don't create session
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 
-                .authorizeRequests()
+//                .authorizeRequests()
                 //.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
                 // allow anonymous resource requests
@@ -78,9 +78,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 //                        "/**/*.css",
 //                        "/**/*.js"
 //                ).permitAll()
-                .antMatchers("/login").permitAll()
-                .antMatchers("/auth/**").permitAll()
-                .anyRequest().authenticated();
+                .authorizeRequests().antMatchers("**/admin").authenticated()
+                .anyRequest().permitAll()
+                .and()
+                .formLogin().loginPage("/login").permitAll();
 
         // Custom JWT based security filter
         http
