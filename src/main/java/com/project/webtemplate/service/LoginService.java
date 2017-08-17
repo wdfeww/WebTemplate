@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class LoginService {
 
     @Autowired
-    private UserRepository adminRepository;
+    private UserRepository userRepository;
 
 
     private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
@@ -19,12 +19,12 @@ public class LoginService {
     public void addAdmin(User user) {
         String password = bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(password);
-        adminRepository.save(user);
+        userRepository.save(user);
     }
 
     public boolean logIn(String username, String password) {
         if (StringUtils.isNotBlank(username) && StringUtils.isNotBlank(password)) {
-            User user = adminRepository.getUserByUsernameAndPassword(username, password);
+            User user = userRepository.getUserByUsernameAndPassword(username, password);
             if (user != null) {
                 return true;
             }
