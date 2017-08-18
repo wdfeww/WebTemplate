@@ -13,9 +13,28 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <H1>ADMIN PAGE</H1>
+                <p th:text="#{jwt.token}">token</p>
             </div>
         </div>
     </nav>
+    <form name="loginForm" th:action="@{/user/new}" method="POST">
+        <div>
+            <label th:text="#{login.page.username}">user</label>
+            <input type='text' autofocus="autofocus" class="form-control" placeholder="Username"
+                   name='username' value="admin1"/>
+        </div>
+        <div>
+            <label th:text="#{login.page.password}">pass</label>
+            <input type='password' placeholder="Password" name='password' class="form-control" value="admin1"/>
+        </div>
+        <div>
+            <label th:text="role">pass</label>
+            <input type='text' placeholder="Role" name='role' class="form-control" value="ROLE_ADMIN"/>
+        </div>
+        <div>
+            <input type="submit" value="SUBMIT" class="btn btn-sm btn-default"/>
+        </div>
+    </form>
 </header>
 
 </body>

@@ -7,10 +7,7 @@ import com.project.webtemplate.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -38,7 +35,7 @@ public class UserRestController {
     }
 
     @RequestMapping(value = "user/new", method = RequestMethod.POST)
-    public void addAdmin(@RequestBody User user) {
+    public void addAdmin(@ModelAttribute User user) {
         loginService.addAdmin(user);
     }
 
