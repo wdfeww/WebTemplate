@@ -6,12 +6,14 @@ import com.project.webtemplate.entities.User;
 import com.project.webtemplate.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
-@RestController
+@Controller
 public class UserRestController {
 
     @Value("${jwt.header}")
@@ -34,9 +36,11 @@ public class UserRestController {
         return user;
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "user/new", method = RequestMethod.POST)
-    public void addAdmin(@ModelAttribute User user) {
+    public String addAdmin(@ModelAttribute User user) {
         loginService.addAdmin(user);
+        return "redirect:/admin";
     }
 
 }

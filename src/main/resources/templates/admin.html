@@ -8,15 +8,7 @@
     <script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}" ></script>
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <H1>ADMIN PAGE</H1>
-                <p th:text="#{jwt.token}">token</p>
-            </div>
-        </div>
-    </nav>
+<div th:replace="fragments/header :: header"></div>
     <form name="loginForm" th:action="@{/user/new}" method="POST">
         <div>
             <label th:text="#{login.page.username}">user</label>
@@ -35,7 +27,7 @@
             <input type="submit" value="SUBMIT" class="btn btn-sm btn-default"/>
         </div>
     </form>
-</header>
+
 
 </body>
 </html>
